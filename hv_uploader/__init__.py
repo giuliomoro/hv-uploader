@@ -224,7 +224,8 @@ def upload(input_dir, output_dirs=None, name=None, owner=None, generators=None, 
                 # if an owner is not supplied, default to the user name in the token
                 owner = payload["name"]
         except Exception as e:
-            print "The user token is invalid. Generate a new one at https://enzienaudio.com/h/<username>/settings/."
+            print "The user token is invalid. Generate a new one at https://enzienaudio.com/getmytokens/."
+            os.remove(token_path)
             exit_code = ErrorCodes.CODE_INVALID_TOKEN
             raise e
 
